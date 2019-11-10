@@ -7,4 +7,4 @@
         die;
     }
     
-    print_r($json->votes);
+    print_r($json->players);
