@@ -1,3 +1,7 @@
 # Exemple de scripts pour l'API de Top-Serveurs
 
-https://top-serveurs.net
+Plateforme = https://top-serveurs.net
+
+## Liste des exemples :
+
+* [Exemples de classement des meilleurs voteurs](./top-voteurs)
