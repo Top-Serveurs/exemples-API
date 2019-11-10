@@ -1,0 +1,37 @@
+<html>
+    <head></head>
+    <body>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Pseudo</th>
+                    <th>Votes</th>
+                </tr>
+            </thead>
+            <tbody id="votesTableContent">
+            </tbody>
+        </table>
+        
+        <script>
+            var serverToken = "XXXXXXXXXXX"; // Renseignez la token de votre serveur présente sur votre fiche Top-Serveurs
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://api.top-serveurs.net/v1/servers/' + serverToken + '/players-ranking');
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var responseContent = JSON.parse(xhr.responseText);
+                    var votesTableContent = '';
+                    responseContent.players.forEach(function(player) {
+                        votesTableContent += '<tr><td>' + player.playername + '</td><td>' + player.votes + '</td></tr>';
+                    });
+                    document.getElementById('votesTableContent').innerHTML = votesTableContent;
+                } else {
+                    alert('Erreur lors la récupération des données');
+                }
+            };
+            xhr.send();
+        </script>
+    </body>
+</html>
